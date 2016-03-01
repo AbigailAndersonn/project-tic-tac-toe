@@ -6,7 +6,13 @@ def printBoard(board):
     #                                                                       #
     # Hint: you can follow the same process that was done in the textbook.  #
     #########################################################################
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+    print('-+-+-')
+    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+    print('-+-+-')
+    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
 
+    
 def checkWinner(board, player):    
     print('Checking if ' + player + ' is a winner...')
     
@@ -18,7 +24,26 @@ def checkWinner(board, player):
     # variable 'player' has won. The function should return False           #
     # if the player in the variable 'player' has not won.                   #
     #########################################################################
-    
+
+    if board['top-L'] == player and board['mid-L'] == player and board['low-L'] == player:
+        return True
+    if board['top-M'] == player and board['mid-M'] == player and board['low-M'] == player:
+        return True
+    if board['top-R'] == player and board['mid-R'] == player and board['low-R'] == player:
+        return True
+    if board['top-L'] == player and board['top-M'] == player and board['top-R'] == player:
+        return True
+    if board['mid-L'] == player and board['mid-M'] == player and board['mid-R'] == player:
+        return True
+    if board['low-L'] == player and board['low-M'] == player and board['low-R'] == player:
+        return True
+    if board['top-L'] == player and board['mid-M'] == player and board['low-R'] == player:
+        return True
+    if board['top-R'] == player and board['mid-M'] == player and board['low-L'] == player:
+        return True
+
+    else:
+        return False
     
 def startGame(startingPlayer, board):
     # TO DO #################################################################
